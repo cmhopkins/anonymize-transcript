@@ -1,0 +1,25 @@
+Meeting Title: Q1 Infrastructure Planning
+Date: February 20, 2026
+Organizer: Sarah Johnson
+
+[00:00:02] Sarah Johnson: Hi everyone, thanks for joining. Let’s get started.
+[00:00:08] Michael Chen: Morning Sarah.
+[00:00:12] David Patel: Good morning.
+[00:00:16] Emily Rodriguez: Hi all.
+
+[00:01:05] Sarah Johnson: I see Priya joined as well.
+[00:01:09] Priya Singh: Yes, sorry I was on another call.
+
+[00:02:15] Sarah Johnson: Michael, can you walk us through the API update?
+[00:02:20] Michael Chen: Sure. David and I worked on the authentication changes.
+[00:02:27] David Patel: Yeah, Michael’s update includes the new JWT validation logic.
+
+[00:03:45] Emily Rodriguez: I reviewed David Patel’s pull request yesterday.
+[00:03:52] Sarah Johnson: Thanks Emily.
+
+[00:05:10] Michael Chen: Priya mentioned an issue with the staging server.
+[00:05:16] Priya Singh: Yes, the error logs were tied to Emily’s deployment.
+
+[00:07:02] David Patel: I think Sarah’s suggestion about caching makes sense.
+
+[00:09:40] Sarah Johnson: Thanks everyone. I’ll follow up with Michael and Priya offline.

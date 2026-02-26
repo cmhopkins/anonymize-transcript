@@ -9,7 +9,6 @@ def create_at_dict(attendees_file):
 
     df = pd.read_csv(attendees_file)
     df["Inits"] = df["First Name"].str[0] + df["Last Name"].str[0]
-    keys = df["Inits"]
     df = df.drop(columns = ["Last Name", "Email", "Role", "Join Time", "Leave Time"])
 
     for _, row in df.iterrows():
@@ -19,13 +18,15 @@ def create_at_dict(attendees_file):
     return at_dict   
 
 def anonymize(tf, attendees):
-    tf_obj = open(tf, "r")
-    transcript = tf_obj.read()
-    for name in sorted(attendees, key=len, reverse=True):
+    with open(tf, "r", encoding="utf-8") as f:
+        transcript = f.read()
+
+    sorted_names = sorted(attendees.keys(), key=len, reverse=True)
+    for name in sorted_names:
         transcript = transcript.replace(name, attendees[name])
-    stripped = open('stripped_transcript.txt', 'w')
-    stripped.write(transcript + '\n')
-    stripped.close()
+
+    with open("stripped_transcript.txt", "w", encoding="utf-8") as f:
+        f.write(transcript)
             
 
 def main(transcript_file, attendees_file):

@@ -2,6 +2,7 @@
 # Create dictionary of names
 
 import pandas as pd
+import re
 import sys
 
 def create_at_dict(attendees_file):
@@ -21,12 +22,11 @@ def anonymize(tf, attendees):
     with open(tf, "r", encoding="utf-8") as f:
         transcript = f.read()
 
-    sorted_names = sorted(attendees.keys(), key=len, reverse=True)
-    for name in sorted_names:
-        transcript = transcript.replace(name, attendees[name])
+
+    trans, _ = re.subn(r'\b(?:' + '|'.join(attendees.keys()) + r')\b', lambda match: attendees[match.group()], transcript)
 
     with open("stripped_transcript.txt", "w", encoding="utf-8") as f:
-        f.write(transcript)
+        f.write(trans)
             
 
 def main(transcript_file, attendees_file):
